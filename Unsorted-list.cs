@@ -6,17 +6,20 @@ using System.Threading.Tasks;
 
 namespace Kolejka
 {
-    class Unsorted_list:IKolejkaable
+    class Unsorted_list<D>:IKolejkaable<D>
     {
-        int dlugosc()
-        {
+        D[] _item;
 
-            return 
-        }
-        public void insert(Object objekt)
+        int capacity;
+        int length;
+       
+        public void insert(D item)
         {
-            object lista = new object();
-            if(lista == "nullptr")
+            if (length == 0)
+            {
+                _item[length] = item;
+                length++;
+            }
 
         }
 

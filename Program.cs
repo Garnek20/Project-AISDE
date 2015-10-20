@@ -12,7 +12,7 @@ namespace Kolejka
         {
             int a = 1;
 
-            Unsorted_list lista = new Unsorted_list();
+            Unsorted_list<int> lista = new Unsorted_list<int>();
             lista.insert(a);
 
 

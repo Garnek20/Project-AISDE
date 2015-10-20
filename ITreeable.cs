@@ -6,12 +6,11 @@ using System.Threading.Tasks;
 
 namespace Kolejka
 {
-    public interface IKolejkaable<D>
+    interface ITreeable<D,K>:IKolejkaable<D>, IComparable
     {
         //metods
-        void insert(D objekt);
-        void delete(D objekt);
-        int count();
+        void insert(D objekt, K key);
+        void delete(D objekt, K key);
         
     }
 }
