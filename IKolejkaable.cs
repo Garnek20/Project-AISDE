@@ -10,7 +10,7 @@ namespace Kolejka
     {
         //metods
         void insert(D objekt);
-        void delete(D objekt);
+        D delete(int number);
         int count();
         
     }

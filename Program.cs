@@ -12,8 +12,7 @@ namespace Kolejka
         {
             int a = 1;
 
-            Unsorted_list<int> lista = new Unsorted_list<int>();
-            lista.insert(a);
+            IKolejkaable<int> lista;
 
 
 
