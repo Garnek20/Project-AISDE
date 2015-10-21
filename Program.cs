@@ -6,13 +6,21 @@ using System.Threading.Tasks;
 
 namespace Kolejka
 {
-    class Program
+    class Program 
     {
         static void Main(string[] args)
         {
-            int a = 1;
+            Console.WriteLine("Give the size of list, please:");
+            int size = int.Parse(Console.ReadLine());
 
-            IKolejkaable<int> lista;
+            Unsorted_list<int> lista = new Unsorted_list<int>(size);
+            lista.insert(4);
+            lista.insert(3);
+
+            for(int n = 0; n < lista._length; n++)
+            {
+                System.Console.WriteLine(lista.show(n));
+            }
 
 
 

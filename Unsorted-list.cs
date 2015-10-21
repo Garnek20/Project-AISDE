@@ -4,52 +4,65 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+
 namespace Kolejka
 {
-    class Unsorted_list<D>:IKolejkaable<D>
+    public class Unsorted_list<D>:IKolejkaable<D>
     {
+        //table with data
         D[] _item;
-
-        int capacity;
-        int length;
         
-        Unsorted_list()
+        //pointer using to find elements
+        int _pointer;
+        //lists capacity
+        int capacity;
+
+        public int _length;
+
+        public Unsorted_list(int size)
         {
-               capacity = 100;
-               length = 0;
+               _pointer = 0;
+               capacity = size;
+               //_length = size;
+               D[] _item = new D[capacity];
                
         }
        
         public void insert(D item)
         {
-            if (length >= capacity)
+            if ( _pointer >= capacity)
             {
                 throw new StackOverflowException();
             }
             else
             {
-                _item[length] = item;
-                length++;
+                _item[_pointer] = item;
+                _pointer++;
             }
 
         }
 
-        public D delete(int number)
+        public object delete(int number)
         {
-            if(number < 0 || number > length -1 || length <= 0)
+            if(number < 0 || number > _length -1 || _length <= 0)
                 throw new StackOverflowException();
             else
             {
-                length--;
-                return _item[length];
+                _length--;
+                return _item[_length];
             }
-
+            
        }
 
-       public int count()
-       {
-            return length;
-       }
+        public object show(int n)
+        {
+            return _item[n];
+        }
+
+        public int count()
+        {
+            return _length;
+        }
     }
 
 
