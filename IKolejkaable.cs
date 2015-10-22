@@ -2,16 +2,18 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
+
 
 namespace Kolejka
 {
-    public interface IKolejkaable<D>
+    public interface IKolejkaable<D,K> where K: IComparable
     {
-        //metods
-        void insert(D objekt);
-        object delete(int number);
-        int count();
-        
+        //metody
+        void dodaj(D objekt, K klucz);
+        Element<D,K> usun();
+        int zwrocRozmiar();
+        D dane(int i);
+        K klucz(int i);
+        //K klucz(int i);
     }
 }
