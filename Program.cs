@@ -10,10 +10,8 @@ namespace Kolejka
     {
         static void Main(string[] args)
         {
-               
-
-           Tester test = new Tester();
-            test.testujListe();
+            Tester test = new Tester();
+            test.testujDrzewo();
            
         }
     }

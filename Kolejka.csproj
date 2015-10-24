@@ -42,6 +42,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DrzewoTurniejowe.cs" />
     <Compile Include="Element.cs" />
     <Compile Include="IKolejkaable.cs" />
     <Compile Include="Program.cs" />

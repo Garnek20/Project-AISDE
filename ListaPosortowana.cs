@@ -42,10 +42,10 @@ namespace Kolejka
             {
                 throw new InvalidOperationException("Kolejka nie ma miejsca, pojemnosc = 0 :-(");
             }
-            if ( wskaznik == 0)
+         /* if ( wskaznik == 0)
             {
                 element[wskaznik] = nowy;
-            }
+            }*/
             if(wskaznik == 1)
             {
                 element[0] = nowy;
@@ -69,19 +69,18 @@ namespace Kolejka
 
         }
 
-        public Element<D,K> usun()
+        public void usun()
         {
             if (wskaznik == 0)
             {
                 Console.WriteLine("Lista jest pusta, nie moge nic usunac");
-                return null;
             }
             else
             {
-               Element<D,K> zwroc = element[wskaznik - 1];
+              //lement<D,K> zwroc = element[wskaznik - 1];
               // element[wskaznik - 1] = null;
                wskaznik--;
-               return zwroc;
+               return;
             }
             
        }

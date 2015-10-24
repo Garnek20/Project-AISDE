@@ -10,7 +10,7 @@ namespace Kolejka
     {
         //metody
         void dodaj(D objekt, K klucz);
-        Element<D,K> usun();
+        void usun();
         int zwrocRozmiar();
         D dane(int i);
         K klucz(int i);
