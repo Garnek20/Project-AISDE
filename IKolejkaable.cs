@@ -14,6 +14,5 @@ namespace Kolejka
         int zwrocRozmiar();
         D dane(int i);
         K klucz(int i);
-        //K klucz(int i);
     }
 }

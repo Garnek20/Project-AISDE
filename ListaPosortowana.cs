@@ -42,31 +42,55 @@ namespace Kolejka
             {
                 throw new InvalidOperationException("Kolejka nie ma miejsca, pojemnosc = 0 :-(");
             }
-         /* if ( wskaznik == 0)
-            {
-                element[wskaznik] = nowy;
-            }*/
+        
             if(wskaznik == 1)
             {
                 element[0] = nowy;
                 return;
             }
-            for(int i =0; i <= wskaznik; i++)
-            {
-                if(i < wskaznik - 1)
-                {
-                    if(element[i].zwrocKlucz().CompareTo(nowy.zwrocKlucz()) < 0)
-                    {
-                        Element<D,K> tmp;
-                        tmp = element[i];
-                        element[i] = nowy;
-                        nowy = tmp;
-                    }
-                 }
-                else
-                    element[wskaznik - 1] = nowy;
-            }
 
+            if (wskaznik > 1 && wskaznik < pojemnosc)
+            {
+                for (int i = 0; i <= wskaznik; i++)
+                {
+                    if (i < wskaznik - 1)
+                    {
+                        if (element[i].zwrocKlucz().CompareTo(nowy.zwrocKlucz()) > 0)
+                        {
+                            Element<D, K> tmp;
+                            tmp = element[i];
+                            element[i] = nowy;
+                            nowy = tmp;
+                        }
+                    }
+                    else
+                        element[wskaznik - 1] = nowy;
+                }
+            }
+            else
+            {
+                Element<D,K>[] tmp = new Element<D,K>[2 * pojemnosc];
+                for (int i = 0; i < wskaznik; i++)
+                    tmp[i] = element[i];
+                element = tmp;
+                pojemnosc *= 2;
+
+                for (int i = 0; i <= wskaznik; i++)
+                {
+                    if (i < wskaznik - 1)
+                    {
+                        if (element[i].zwrocKlucz().CompareTo(nowy.zwrocKlucz()) < 0)
+                        {
+                            Element<D, K> tmp1;
+                            tmp1 = element[i];
+                            element[i] = nowy;
+                            nowy = tmp1;
+                        }
+                    }
+                    else
+                        element[wskaznik - 1] = nowy;
+                }
+            }
         }
 
         public void usun()
@@ -84,7 +108,16 @@ namespace Kolejka
             }
             
        }
-      
+/*
+        public IEnumerator<Element<D,K>> GetEnumerator()
+        {
+            for (int index = 0; index < element.Length; index++)
+            {
+                // Yield each day of the week.
+                yield return element[index];
+            }
+        }
+      */
         public int zwrocRozmiar()
         {
             return wskaznik;
@@ -97,7 +130,7 @@ namespace Kolejka
         {
             return element[i].zwrocDane();
         }
-
+        
     }
 
 
